@@ -30,7 +30,7 @@ gobgp global rib
 ```
 - Start this program with one or more IP addresses matching the previously installed rib as arguments.
 ```
-go run taintrib.go 172.16.0.1 192.168.1.1
+GOMAXPROCS=8 go run taintrib.go 172.16.0.1 192.168.1.1
 ```
 - Sit back and wait until it stops like so:
 ```
@@ -52,4 +52,4 @@ gobgp global rib
 
 - When it blocks you see no more debug messages that would otherwise show up every five seconds.
 
-- If it happens, you need to tweak values of the first three constants and/or `--cpus` option, then try again.
+- If it happens, you need to tweak values of the first three constants, GOMAXPROCS env, and also `--cpus` option for gobgpd.

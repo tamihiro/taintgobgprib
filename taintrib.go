@@ -10,7 +10,6 @@ import (
 	"log"
 	"net"
 	"os"
-	"runtime"
 	"time"
 )
 
@@ -219,8 +218,6 @@ func (b *RsBalancer) completed(rs *RibSearcher) {
 }
 
 func main() {
-	runtime.GOMAXPROCS(8)
-
 	if len(os.Args) < 2 {
 		log.Print("FATAL: one or more IPv4 addresses required as arguments.")
 		os.Exit(1)
