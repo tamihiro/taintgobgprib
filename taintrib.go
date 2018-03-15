@@ -18,7 +18,6 @@ const IntervalMicrosec = 40
 const RibSearcherNum = 300
 const RibSearcherReqNum = 100
 const GrpcTimeout = 1e2 * time.Millisecond
-const SearchIpNum = 2
 
 type SearchRequest struct {
 	ReqCount   int
@@ -222,8 +221,8 @@ func (b *RsBalancer) completed(rs *RibSearcher) {
 func main() {
 	runtime.GOMAXPROCS(8)
 
-	if len(os.Args[1:]) != SearchIpNum {
-		log.Printf("FATAL: %d IPv4 addresses required as arguments: %v", SearchIpNum, os.Args[1:])
+	if len(os.Args) < 2 {
+		log.Print("FATAL: one or more IPv4 addresses required as arguments.")
 		os.Exit(1)
 	}
 	var reqIp []net.IP
