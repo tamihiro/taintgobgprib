@@ -206,6 +206,10 @@ func (b *RsBalancer) print() {
 
 func (b *RsBalancer) dispatch(req SearchRequest) {
 	rs := heap.Pop(&b.pool).(*RibSearcher)
+	if rs.pending == RibSearcherReqNum {
+		log.Print("ERROR: set longer IntervalMicrosec and try again.")
+		os.Exit(1)
+	}
 	rs.requests <- req
 	rs.pending++
 	heap.Push(&b.pool, rs)
