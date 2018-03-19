@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-const IntervalMicrosec = 40
+const IntervalMicrosec = 60
 const RibSearcherNum = 300
 const RibSearcherReqNum = 100
 const GrpcTimeout = 1e2 * time.Millisecond
