@@ -2,6 +2,10 @@
 
 This code is to reproduce a bug in the current version of GoBGP (1.29) as its RIB entry can be tainted by repetitive GetRib() requests. 
 
+## Update
+
+Shortly after I reported the bug as issue [1614](https://github.com/osrg/gobgp/issues/1614), they nailed and fixed it with [cda7c44](https://github.com/osrg/gobgp/commit/cda7c44afe723be74e39266823b54ba28d0ec019). 
+
 ## What it does
 
 Generate a stream of GetRib() requests to a local GoBGP daemon until it receives an incorrect response.
