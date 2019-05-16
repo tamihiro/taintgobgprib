@@ -52,6 +52,6 @@ gobgp global rib
 ## Usage notes
 - The number of requests required to hit the bug varies each time. Sometimes it takes less than 1M, other times it's more than 8M like the above (8318360). 
 
-- The fan-out logic of this code is pretty much stolen from [balancer.go](https://talks.golang.org/2010/io/balance.go), but the program exits if all workers are occupied.
+- The fan-out logic of this code is pretty much stolen from [balance.go](https://talks.golang.org/2010/io/balance.go), but the program exits if all workers are occupied.
 
 - In case it happens, you need to tweak values of the first three constants, GOMAXPROCS env, and also `--cpus` option for gobgpd.
